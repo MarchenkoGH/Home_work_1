@@ -1,12 +1,14 @@
+from urllib.parse import urlsplit, parse_qs
+from http.cookies import SimpleCookie
+
+
 def parse_parameters(url: str) -> dict:
-    from urllib.parse import urlsplit, parse_qs
     query = urlsplit(url).query
     params = parse_qs(query)
     return {k: v[0] for k, v in params.items()}
 
 
 def parse_cookies(query: str) -> dict:
-    from http.cookies import SimpleCookie
     cookie = SimpleCookie()
     cookie.load(query)
     cookies = {}
