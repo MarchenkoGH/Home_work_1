@@ -37,3 +37,7 @@ if __name__ == '__main__':
     # Tests for function "parse_cookies"
     assert parse_cookies('') == {}
     assert parse_cookies('name=Dima;') == {'name': 'Dima'}
+    assert parse_cookies('name=Dima; surname=ivanov;') == {'name': 'Dima', 'surname': 'ivanov'}
+    assert parse_cookies('CUSTOMER=WILE_E_COYOTE; PART_NUMBER=ROCKET_LAUNCHER_0001; SHIPPING=FEDEX') \
+           == {'CUSTOMER': 'WILE_E_COYOTE', 'PART_NUMBER': 'ROCKET_LAUNCHER_0001', 'SHIPPING': 'FEDEX'}
+
